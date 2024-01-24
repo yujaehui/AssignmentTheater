@@ -7,10 +7,13 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class TheaterViewController: UIViewController {
     
     @IBOutlet var theaterMapView: MKMapView!
+    
+    let locationManager = CLLocationManager()
     
     var originalList = TheaterList().mapAnnotations
     var list = TheaterList().mapAnnotations {
@@ -24,11 +27,15 @@ class TheaterViewController: UIViewController {
         
         updateMapAnnotations()
         setNavigation()
+        
+        locationManager.delegate = self
+        
+        checkDeviceLocationAuthorization()
     }
     
     func updateMapAnnotations() {
-        let coordinate = CLLocationCoordinate2D(latitude: list[0].latitude,
-                                                longitude: list[0].longitude)
+        let coordinate = CLLocationCoordinate2D(latitude: 37.517749,
+                                                longitude: 126.885450)
         let region = MKCoordinateRegion(center: coordinate,
                                         latitudinalMeters: 15000,
                                         longitudinalMeters: 15000)
@@ -71,5 +78,69 @@ class TheaterViewController: UIViewController {
         sheet.addAction(cancelButton)
         
         present(sheet, animated: true)
+    }
+}
+
+extension TheaterViewController {
+    func checkDeviceLocationAuthorization() {
+        DispatchQueue.global().async {
+            if CLLocationManager.locationServicesEnabled() {
+                let status: CLAuthorizationStatus = self.locationManager.authorizationStatus
+                DispatchQueue.main.async {
+                    self.checkCurrentLocationAuthorization(status: status)
+                }
+            } else {
+                print("디바이스의 위치 서비스 비활성화 상태")
+            }
+        }
+    }
+    
+    func checkCurrentLocationAuthorization(status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.requestWhenInUseAuthorization()
+        case .denied:
+            showSettingAlert()
+            
+        case .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+        default: print("error")
+        }
+    }
+    
+    func showSettingAlert() {
+        let alert = UIAlertController(title: "위치 정보를 사용할 수 없습니다.", message: "위치 서비스를 사용하려먼 '위치' 접근권한을 허용해야 합니다.", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let setting = UIAlertAction(title: "설정", style: .default) { _ in
+            guard let settingURL = URL(string: UIApplication.openSettingsURLString) else { return }
+            UIApplication.shared.canOpenURL(settingURL)
+        }
+        alert.addAction(cancel)
+        alert.addAction(setting)
+        present(alert, animated: true)
+    }
+}
+
+extension TheaterViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations)
+        if let coordinate = locations.last?.coordinate {
+            setRegionAndAnnotation(center: coordinate)
+        }
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
+        let resion = MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
+        theaterMapView.setRegion(resion, animated: true)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkDeviceLocationAuthorization()
     }
 }
