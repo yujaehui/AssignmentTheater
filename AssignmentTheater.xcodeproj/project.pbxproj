@@ -16,6 +16,7 @@
 		09191C8B2B57F2C200E3FE7B /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09191C8A2B57F2C200E3FE7B /* TheaterViewController.swift */; };
 		09191C8D2B57F33B00E3FE7B /* TheaterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09191C8C2B57F33B00E3FE7B /* TheaterList.swift */; };
 		09191C8F2B57F34700E3FE7B /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09191C8E2B57F34700E3FE7B /* Theater.swift */; };
+		092A133B2B60EE420093636A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 092A133A2B60EE420093636A /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		09191C8A2B57F2C200E3FE7B /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
 		09191C8C2B57F33B00E3FE7B /* TheaterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterList.swift; sourceTree = "<group>"; };
 		09191C8E2B57F34700E3FE7B /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
+		092A133A2B60EE420093636A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				09191C8A2B57F2C200E3FE7B /* TheaterViewController.swift */,
 				09191C8E2B57F34700E3FE7B /* Theater.swift */,
 				09191C8C2B57F33B00E3FE7B /* TheaterList.swift */,
+				092A133A2B60EE420093636A /* .gitignore */,
 			);
 			path = AssignmentTheater;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				092A133B2B60EE420093636A /* .gitignore in Resources */,
 				09191C812B57F1AF00E3FE7B /* LaunchScreen.storyboard in Resources */,
 				09191C7E2B57F1AF00E3FE7B /* Assets.xcassets in Resources */,
 				09191C7C2B57F1AD00E3FE7B /* Main.storyboard in Resources */,
