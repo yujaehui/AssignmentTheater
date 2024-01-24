@@ -17,6 +17,8 @@
 		09191C8D2B57F33B00E3FE7B /* TheaterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09191C8C2B57F33B00E3FE7B /* TheaterList.swift */; };
 		09191C8F2B57F34700E3FE7B /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09191C8E2B57F34700E3FE7B /* Theater.swift */; };
 		092A133B2B60EE420093636A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 092A133A2B60EE420093636A /* .gitignore */; };
+		092A133D2B60EE6B0093636A /* APIkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A133C2B60EE6B0093636A /* APIkey.swift */; };
+		092A13402B60EEC10093636A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 092A133F2B60EEC10093636A /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,7 @@
 		09191C8C2B57F33B00E3FE7B /* TheaterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterList.swift; sourceTree = "<group>"; };
 		09191C8E2B57F34700E3FE7B /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
 		092A133A2B60EE420093636A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		092A133C2B60EE6B0093636A /* APIkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIkey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				092A13402B60EEC10093636A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +79,7 @@
 				09191C8E2B57F34700E3FE7B /* Theater.swift */,
 				09191C8C2B57F33B00E3FE7B /* TheaterList.swift */,
 				092A133A2B60EE420093636A /* .gitignore */,
+				092A133C2B60EE6B0093636A /* APIkey.swift */,
 			);
 			path = AssignmentTheater;
 			sourceTree = "<group>";
@@ -95,6 +100,9 @@
 			dependencies = (
 			);
 			name = AssignmentTheater;
+			packageProductDependencies = (
+				092A133F2B60EEC10093636A /* Alamofire */,
+			);
 			productName = AssignmentTheater;
 			productReference = 09191C712B57F1AD00E3FE7B /* AssignmentTheater.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 09191C682B57F1AD00E3FE7B;
+			packageReferences = (
+				092A133E2B60EEC10093636A /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 09191C722B57F1AD00E3FE7B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -153,6 +164,7 @@
 			files = (
 				09191C792B57F1AD00E3FE7B /* ViewController.swift in Sources */,
 				09191C8D2B57F33B00E3FE7B /* TheaterList.swift in Sources */,
+				092A133D2B60EE6B0093636A /* APIkey.swift in Sources */,
 				09191C752B57F1AD00E3FE7B /* AppDelegate.swift in Sources */,
 				09191C8F2B57F34700E3FE7B /* Theater.swift in Sources */,
 				09191C8B2B57F2C200E3FE7B /* TheaterViewController.swift in Sources */,
@@ -379,6 +391,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		092A133E2B60EEC10093636A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		092A133F2B60EEC10093636A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 092A133E2B60EEC10093636A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 09191C692B57F1AD00E3FE7B /* Project object */;
 }

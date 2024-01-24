@@ -114,7 +114,7 @@ extension TheaterViewController {
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let setting = UIAlertAction(title: "설정", style: .default) { _ in
             guard let settingURL = URL(string: UIApplication.openSettingsURLString) else { return }
-            UIApplication.shared.canOpenURL(settingURL)
+            UIApplication.shared.open(settingURL)
         }
         alert.addAction(cancel)
         alert.addAction(setting)
